@@ -55,7 +55,7 @@ export async function POST(req: Request){
 ----------------
 `
 
-        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" })
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" })
         
         const geminiMessages = messages.map((msg: any) => ({
             role: msg.role === 'user' ? 'user' : 'model',
