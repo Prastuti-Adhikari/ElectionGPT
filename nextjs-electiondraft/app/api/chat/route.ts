@@ -55,7 +55,7 @@ export async function POST(req: Request){
 ----------------
 `
 
-        const model = genAI.getGenerativeModel({ model: "gemini-pro"})
+        const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest"})
         
         const geminiMessages = messages.map((msg: any) => ({
             role: msg.role === 'user' ? 'user' : 'model',
@@ -65,7 +65,7 @@ export async function POST(req: Request){
         const chat = model.startChat({
             history: [
                 { role: 'user', parts: [{ text: template }] },
-                { role: 'model', parts: [{ text: 'I understand. I will answer questions about Nepal\'s election using the provided context.' }] },
+                { role: 'model', parts: [{ text: 'I understand. I will answer questions about Nepal election using the provided context.' }] },
                 ...geminiMessages.slice(0, -1)
             ]
         })
